@@ -92,8 +92,8 @@ emconfigure ../../../vorbis/configure \
 emmake make -j4 || exit 1
 emmake make install || exit 1
 
-cd $dir
+cd $dir/build/js/root
 
 ## upload to bintray
-zip -r libvorbis-ogv.js.zip $dir/build/js/root 
-curl -T libvorbis-ogv.js.zip -u$1:$2 https://api.bintray.com/content/daemoohn/libvorbis-ogv.js/libvorbis-ogv.js/$version/libvorbis-ogv.js.zip?publish=1
+zip -r $dir/libvorbis-ogv.js.zip . 
+curl -T $dir/libvorbis-ogv.js.zip -u$1:$2 https://api.bintray.com/content/daemoohn/libvorbis-ogv.js/libvorbis-ogv.js/$version/libvorbis-ogv.js.zip?publish=1
